@@ -1,0 +1,222 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Improve color contrast for table headers and summary rows */
+th, td {
+  color: #222;
+  background: #fff;
+}
+tr[style*="background: #e0e0e0"] td, tr[style*="background: #f0f0f0"] td {
+  background: #e0e0e0 !important;
+  color: #111;
+  font-weight: bold;
+}
+
+/* Focus style for keyboard navigation */
+table:focus {
+  outline: 3px solid #646cff;
+  outline-offset: 2px;
+}
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #e0e0e0;
+  border-top: 5px solid #646cff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Stylish table enhancements */
+table {
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(100,108,255,0.10), 0 1.5px 4px rgba(0,0,0,0.04);
+  overflow: hidden;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #fff;
+}
+thead th {
+  background: #232b5c !important;
+  color: #fff !important;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  border-bottom: 2px solid #232b5c;
+  font-size: 1.08em;
+  text-shadow: 0 1px 2px #0008;
+}
+tbody tr {
+  transition: background 0.2s;
+}
+tbody tr:hover {
+  background: #f3f4ff;
+}
+td, th {
+  padding: 0.85em 1em;
+  border-bottom: 1px solid #e6e8f0;
+}
+tbody tr:last-child td, tbody tr:last-child th {
+  border-bottom: none;
+}
+
+/* Stylish highlight for total rows */
+tbody tr[style*='#222'] {
+  background: linear-gradient(90deg, #222 0%, #444 100%) !important;
+  color: #ffe066 !important;
+  box-shadow: 0 2px 8px #22222255;
+}
+
+/* Customer total row style */
+.customer-total-row {
+  background-color: #197278 !important;
+  color: #fff !important;
+  font-weight: bold;
+  box-shadow: 0 2px 8px #19727855;
+}
+.customer-total-row th,
+.customer-total-row td {
+  background-color: #197278 !important;
+  color: #fff !important;
+  text-shadow: 0 1px 2px #000a;
+}
+
+/* Responsive tweaks */
+@media (max-width: 700px) {
+  table {
+    font-size: 0.97em;
+    min-width: unset !important;
+    width: 100% !important;
+  }
+  th, td {
+    padding: 0.7em 0.5em;
+  }
+}
+
+/* Sticky table headers for desktop */
+thead th {
+  position: sticky;
+  top: 0;
+  background: #f8f8f8;
+  z-index: 2;
+}
+
+/* Toggle button improvements */
+#transactions-toggle-btn {
+  background: #535bf2;
+  border: 2px solid #646cff;
+  color: #fff;
+  font-size: 1.1em;
+  box-shadow: 0 2px 8px rgba(100,108,255,0.08);
+  transition: background 0.2s, border 0.2s;
+}
+#transactions-toggle-btn[aria-expanded="true"] {
+  background: #747bff;
+  border-color: #535bf2;
+}
+#transactions-toggle-btn:focus {
+  outline: 3px solid #535bf2;
+}
+
+/* Table column alignment classes */
+.th-left {
+  text-align: left;
+}
+.th-right {
+  text-align: right;
+}
+.w-25 {
+  width: 25%;
+}
+
+/* Tooltip info icon for points */
+.points-info {
+  margin-left: 6px;
+  cursor: help;
+  color: #535bf2;
+  font-weight: 700;
+  font-size: 1.1em;
+  border-bottom: 1px dotted #535bf2;
+  outline: none;
+  background: none;
+  padding: 0;
+  display: inline-block;
+}
+
+/* New styles for table layout and pagination */
+.table-centered {
+  margin: 0 auto;
+  min-width: 600px;
+  width: 600px;
+  table-layout: fixed;
+}
+
+.pagination-bar {
+  margin: 1em 0;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* Table column alignment classes for TransactionsTable */
+.th-left-10 { text-align: left; width: 10%; }
+.th-left-25 { text-align: left; width: 25%; }
+.th-left-20 { text-align: left; width: 20%; }
+.th-right-225 { text-align: right; width: 22.5%; }
