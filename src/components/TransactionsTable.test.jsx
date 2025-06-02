@@ -41,7 +41,10 @@ describe('TransactionsTable', () => {
     render(<TransactionsTable transactions={transactions} />);
     // Check that the pagination bar is present and correct
     expect(screen.getByRole('navigation')).toBeInTheDocument();
-    expect(screen.getByText('Next')).toBeEnabled();
-    expect(screen.getByText('Previous')).toBeDisabled();
+    // The react-paginate "Previous" and "Next" are <a> with aria-disabled, not disabled attribute
+    const prevBtn = screen.getByText('Previous');
+    expect(prevBtn).toHaveAttribute('aria-disabled', 'true');
+    const nextBtn = screen.getByText('Next');
+    expect(nextBtn).toHaveAttribute('aria-disabled', 'false');
   });
 });
