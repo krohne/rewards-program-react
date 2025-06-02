@@ -1,1 +1,7 @@
-node_modules/\n.env\n.DS_Store\n.cache/\ndist/\ncoverage/\n*.log\n
+node_modules
+.env
+.DS_Store
+.cache
+dist
+coverage
+*.log

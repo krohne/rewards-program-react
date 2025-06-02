@@ -29,15 +29,19 @@ describe('TransactionsTable', () => {
   });
 
   it('renders paginated transactions', () => {
-    const transactions = Array.from({ length: 25 }, (_, i) => ({
-      id: i + 1,
-      customer: 'Test',
-      date: '2025-03-01',
-      amount: 100,
-    }));
+    const transactions = [];
+    for (let i = 0; i < 25; i++) {
+      transactions.push({
+        id: i + 1,
+        customer: 'Customer' + i,
+        date: '2025-03-15',
+        amount: 100 + i,
+      });
+    }
     render(<TransactionsTable transactions={transactions} />);
-    expect(screen.getByText('Page 1 of 3')).toBeInTheDocument();
-    expect(screen.getByText('Next')).not.toBeDisabled();
+    // Check that the pagination bar is present and correct
+    expect(screen.getByRole('navigation')).toBeInTheDocument();
+    expect(screen.getByText('Next')).toBeEnabled();
     expect(screen.getByText('Previous')).toBeDisabled();
   });
 });

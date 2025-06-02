@@ -57,8 +57,8 @@ describe('RewardsSummaryTable', () => {
       };
     }
     render(<RewardsSummaryTable rewards={rewards} />);
-    // Use getByText on the parent element and check textContent directly
-    const paginationBar = screen.getByText('Next').closest('.pagination-bar');
+    // Check that the pagination bar is present and correct
+    expect(screen.getByRole('navigation')).toBeInTheDocument();
     expect(screen.getByText('Next')).toBeEnabled();
     expect(screen.getByText('Previous')).toBeDisabled();
   });

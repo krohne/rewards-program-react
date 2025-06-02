@@ -5,6 +5,7 @@ import { useState } from 'react'
 import PropTypes from 'prop-types'
 import { MONTH_ORDER } from '../constants.js';
 import '../App.css';
+import ReactPaginate from 'react-paginate';
 
 const PAGE_SIZE = 10 // Number of rows per page
 
@@ -110,42 +111,30 @@ export default function RewardsSummaryTable({ rewards }) {
           )}
         </tbody>
       </table>
-      {/* Pagination controls with keyboard navigation */}
+      {/* Pagination controls with react-paginate */}
       <div className="pagination-bar">
-        <button
-          onClick={() => setPage(p => Math.max(0, p - 1))}
-          disabled={page === 0}
-          aria-label="Previous page"
-          tabIndex={0}
-          onKeyDown={e => {
-            if ((e.key === 'ArrowLeft' || e.key === 'ArrowUp') && page > 0) {
-              setPage(p => Math.max(0, p - 1));
-              e.preventDefault();
-              e.stopPropagation();
-              return false;
-            }
-          }}
-        >
-          Previous
-        </button>
-        {/* Show current page and total pages */}
-        <span>Page {page + 1} of {pageCount}</span>
-        <button
-          onClick={() => setPage(p => Math.min(pageCount - 1, p + 1))}
-          disabled={page === pageCount - 1}
-          aria-label="Next page"
-          tabIndex={0}
-          onKeyDown={e => {
-            if ((e.key === 'ArrowRight' || e.key === 'ArrowDown') && page < pageCount - 1) {
-              setPage(p => Math.min(pageCount - 1, p + 1));
-              e.preventDefault();
-              e.stopPropagation();
-              return false;
-            }
-          }}
-        >
-          Next
-        </button>
+        <ReactPaginate
+          pageCount={pageCount}
+          forcePage={page}
+          onPageChange={({ selected }) => setPage(selected)}
+          previousLabel="Previous"
+          nextLabel="Next"
+          breakLabel="..."
+          pageRangeDisplayed={1}
+          marginPagesDisplayed={1}
+          containerClassName="pagination"
+          pageClassName="page-item"
+          pageLinkClassName="page-link"
+          previousClassName="page-item"
+          nextClassName="page-item"
+          previousLinkClassName="page-link"
+          nextLinkClassName="page-link"
+          breakClassName="page-item"
+          breakLinkClassName="page-link"
+          activeClassName="active"
+          disabledClassName="disabled"
+          renderOnZeroPageCount={null}
+        />
       </div>
     </>
   )
